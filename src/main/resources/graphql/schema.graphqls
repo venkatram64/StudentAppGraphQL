@@ -1,0 +1,33 @@
+type Query{
+    courseSubjects: [CourseSubject]
+    students: [Student]
+    courseSubjectById(id: ID!): CourseSubject
+}
+
+type Mutation{
+    addStudent(student: StudentInput): Student
+}
+
+input StudentInput {
+    firstName: String!
+    lastName: String
+    studentId: String
+    age: Int
+    courseSubjectId: ID!
+}
+
+type CourseSubject {
+    id: ID!
+    subjectName: String!
+    students: [Student]
+}
+
+type Student {
+    id: ID!
+    firstName: String!
+    lastName: String
+    studentId: String
+    age: Int
+    courseSubject: CourseSubject
+}
+
